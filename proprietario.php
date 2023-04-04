@@ -1,14 +1,14 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="check.js"></script>
 	<title>Inserimento dati proprietario e auto</title>
 </head>
 <body>
     <div id="container">
-	<form action="creazioneDatabase.php" method="post">
-        <h2 class="dati_utente">Dati Utente</h2>
+        <h2 class="testo">Dati Proprietario</h2>
 
-        <form action="creazioneDatabase.php" method="POST">
+        <form action="creazioneDatabase.php" method="POST" onsubmit="return invia(this)">
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required><br><br>
 
@@ -17,6 +17,7 @@
 
             <label for="cf">Codice fiscale:</label>
             <input type="text" id="cf" name="cf" required><br><br>
+            <div id="cfInvalid"></div>
 
             <input type="submit" value="Invia">
 	    </form>

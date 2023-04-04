@@ -1,0 +1,58 @@
+body {
+    width: 100%;
+  }
+
+#container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Stili specifici per la prima pagina */
+  .testo {
+    text-align: center;
+  }
+  
+  /* Stili specifici per la seconda pagina */
+  #container label {
+    margin-top: 20px;
+  }
+  
+  #container input[type="text"] {
+    margin-bottom: 20px;
+  }
+  
+  #container input[type="submit"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
