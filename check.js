@@ -73,3 +73,24 @@ function validateSelect() {
         return false;
     }
 }
+
+
+function checkPassword() {
+    var password1Field = document.getElementById("pass1");
+    var password2Field = document.getElementById("pass2");
+    var campoPass = document.getElementById("passDiversa");
+
+    var password1 = password1Field.value;
+    var password2 = password2Field.value;
+
+    console.log(password1 + " " + password2);
+
+    if (password1 == password2) {
+        return true;
+    } else {
+        password1Field.style.background=("red");
+        password2Field.style.background=("red");
+        campoPass.innerHTML = "La password non corrisponde, riprovare!";
+        return false;
+    }
+}

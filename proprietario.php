@@ -20,11 +20,18 @@
             <div id="cfInvalid"></div>
 
             <input type="submit" value="Invia">
+
+            <br>
+            <a href="index.php">Torna alla home</a>
 	    </form>
     </div>
 </body>
 </html>
-
+<style>
+		a {
+			text-decoration: none;
+		}
+</style>
 <?php
 
 ?>

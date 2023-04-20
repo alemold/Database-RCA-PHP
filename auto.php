@@ -43,18 +43,26 @@ $result = $conn->query($sql);
                     echo "<option value='" . $row["codiceFiscale"] . "'>" . $row["codiceFiscale"] . "</option>";
                 }
                 echo "</select><br>";
+                echo "<input type='submit' value='Invia'>";
             } else {
-                echo "0 proprietari presenti";
+                echo "0 proprietari presenti. Non è possibile inserire un auto senza proprietario.";
             }
 
             $conn->close();
         ?>
         <div id="cfnotvalid"></div>
 
-        <input type="submit" value="Invia">
+        <br>
+        <a href="index.php">Torna alla home</a>
         </form>
     </div>
 
 </body>
 </html>
+
+<style>
+		a {
+			text-decoration: none;
+		}
+</style>
 
