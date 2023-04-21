@@ -8,6 +8,7 @@ try {
     $db = new PDO($con, $user, $psw);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Sei collegato al database rca" . "<br><br>";
+    echo "<a href='index.php'>Torna alla home</a>";
 
     $tableProprietario = "CREATE TABLE IF NOT EXISTS proprietario (
         codiceFiscale VARCHAR(16) PRIMARY KEY,
