@@ -1,4 +1,15 @@
 <?php
+session_start();
+if (isset($_SESSION["username"])) {
+	echo "Benvenuto" . " " . $_SESSION["username"];
+	echo '<a href="auth/logout.php">    Logout</a>'; 
+} else {
+	echo '<a href="login.php">Login</a>'; 
+}
+if($_SESSION["ruolo"] !== 'Admin') {
+    header("Location:auth/notAdmin.html");
+}
+
 $con = "localhost";
 $user = "root";
 $psw = "";

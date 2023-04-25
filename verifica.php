@@ -1,7 +1,5 @@
 <?php
 session_start();
-// $_SESSION["usernameSession"] = $_POST["username"];
-// $_SESSION["passwordSession"] = $_POST["password"];
 
 $con = "mysql:host=localhost;dbname=rca";
 $user = "root";
@@ -10,14 +8,11 @@ $psw = "";
 try {
     $db = new PDO($con, $user, $psw);
 
-    // $username = $_POST["username"];
-    // $password = $_POST["password"];
-    // echo "Dati session: " . $_SESSION["usernameSession"] . $_SESSION["passwordSession"];
-
 } catch (PDOException $e) {
     echo "Errore " . $e->getMessage();
 }
 
+//REGISTRAZIONE
 if (isset($_POST["usernameReg"]) and $_POST["passwordReg"]) {
     $username = $_POST["usernameReg"];
     $password = $_POST["passwordReg"];
@@ -37,6 +32,42 @@ if (isset($_POST["usernameReg"]) and $_POST["passwordReg"]) {
 
 
 //CONTROLLO LOGIN CON DATI DAL DATABASE
+if (isset($_POST["username"]) and $_POST["password"]) {
+    $userLogin = $_POST["username"];
+    $pswLogin = $_POST["password"];
 
+    try {
+        $query = "SELECT username, password FROM utenti WHERE username = :username AND password = :password";  
+        $statement = $db->prepare($query);  
+        $statement->execute(  
+                        array(  
+                            'username'     =>     $_POST["username"],  
+                            'password'     =>     $_POST["password"],
+                        )  
+                );  
+                $count = $statement->rowCount();  
+                if($count > 0)  {  
+                    $_SESSION["username"] = $_POST["username"];  
+
+                    $nomeUtente = $_POST["username"];
+                    $data = $db->query("SELECT ruolo FROM utenti WHERE username='$nomeUtente'")->fetchAll();
+                    foreach ($data as $row) {
+                        $ruolo = $row['ruolo'];
+                    }
+                    if ($ruolo == "Admin") {
+                        $_SESSION["ruolo"] = "Admin";
+                    } else {
+                        $_SESSION["ruolo"] = "Utente";
+                    }
+                    
+                    header("location:auth/login_success.php");  
+                }  
+                else  {  
+                    echo "Nome utente o password non corretti, <a href='login.php'>accedi</a> di nuovo: ";
+                }
+    } catch (PDOException $e) {
+        echo "Errore: " . $e->getMessage();
+    }
+}
 
 ?>

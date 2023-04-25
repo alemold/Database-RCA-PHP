@@ -1,3 +1,14 @@
+<?php  
+session_start();
+if (isset($_SESSION["username"])) {
+	echo "Benvenuto" . " " . $_SESSION["username"];
+	echo '<a href="auth/logout.php">    Logout</a>'; 
+} else {
+	echo '<a href="login.php">Login</a>'; 
+}
+?>
+
+
 <html>
 <head>
 	<title>Creazione Database</title>
@@ -12,7 +23,9 @@
 			<ul>
 				<li><a href="creazioneDatabase.php">Crea Database</a></li>
 				<li><a href="proprietario.php">Inserimento Proprietario</a></li>
-				<li><a href="auto.php">Inserimento Auto</a></li><br>
+				<li><a href="auto.php">Inserimento Auto</a></li>
+				<li><a href="query/query.php">Inserimento Query</a></li>
+				<li><a href="cercaAuto.php">Cerca auto</a></li><br>
 				<a href="login.php">Accedi</a><br>
 				Non sei registrato?
 				<a href="registrazione.php">Registrati</a>
